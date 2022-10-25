@@ -26,70 +26,120 @@
 
 <body id="page-body" style="padding:0 ;">
     <!-- navigation start-->
-    <nav class="navbar"> 
-        <div class="menu-icon">
-          <span class="fas fa-bars"></span>
+    <nav>
+        <div class="navbar">
+            <i class='bx bx-menu'></i>
+            <div class="logo"><a href="#">CodingLab</a></div>
+            <div class="nav-links">
+                <div class="sidebar-logo">
+                    <span class="logo-name">CodingLab</span>
+                    <i class='bx bx-x'></i>
+                </div>
+                <ul class="links">
+                    <li><a href="#">HOME</a></li>
+                    <li>
+                        <a href="#">HTML & CSS</a>
+                        <i class='bx bxs-chevron-down htmlcss-arrow arrow  '></i>
+                        <ul class="htmlCss-sub-menu sub-menu">
+                            <li><a href="#">Web Design</a></li>
+                            <li><a href="#">Login Forms</a></li>
+                            <li><a href="#">Card Design</a></li>
+                            <li class="more">
+                                <span><a href="#">More</a>
+                                    <i class='bx bxs-chevron-right arrow more-arrow'></i>
+                                </span>
+                                <ul class="more-sub-menu sub-menu">
+                                    <li><a href="#">Neumorphism</a></li>
+                                    <li><a href="#">Pre-loader</a></li>
+                                    <li><a href="#">Glassmorphism</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">JAVASCRIPT</a>
+                        <i class='bx bxs-chevron-down js-arrow arrow '></i>
+                        <ul class="js-sub-menu sub-menu">
+                            <li><a href="#">Dynamic Clock</a></li>
+                            <li><a href="#">Form Validation</a></li>
+                            <li><a href="#">Card Slider</a></li>
+                            <li><a href="#">Complete Website</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">ABOUT US</a></li>
+                    <li><a href="#">CONTACT US</a>
+                        <i class='bx bxs-chevron-down cnt-arrow arrow '></i>
+                        <ul class="cnt-sub-menu sub-menu">
+                            <li><a href="#">Dynamic Clock</a></li>
+                            <li><a href="#">Form Validation</a></li>
+                            <li><a href="#">Card Slider</a></li>
+                            <li><a href="#">Complete Website</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">CONTACT US</a></li>
+                </ul>
+            </div>
+            <div class="search-box">
+                <i class='bx bx-search'></i>
+                <div class="input-box">
+                    <input type="text" placeholder="Search...">
+                </div>
+            </div>
         </div>
-  
-        <div class="logo">Code4Education</div>
-  
-        <div class="nav-items">
-          <li><a href="#">Home</a></li>
-          <div class="dropdown-content">
-            <a href="#">Link 1</a>
-            <a href="#">Link 2</a>
-            <a href="#">Link 3</a>
-          </div>
-          <li><a href="#">Gallery</a></li>
-         
-        </div>
-  
-        <div class="search-icon">
-          <span class="fas fa-search"></span>
-        </div>
-  
-        <div class="cancel-icon">
-          <span class="fas fa-times"></span>
-        </div>
-  
-        <form action="#">
-          <input type="search" class="search-data" placeholder="Search" required>
-          <button type="submit" class="fas fa-search"></button>
-        </form>
-  
-      </nav> 
-      <script>
-        const menuBtn = document.querySelector(".menu-icon span");
-        const searchBtn = document.querySelector(".search-icon");
-        const cancelBtn = document.querySelector(".cancel-icon");
-        const items = document.querySelector(".nav-items");
-        const form = document.querySelector("form");
-        menuBtn.onclick = ()=>{
-          items.classList.add("active");
-          menuBtn.classList.add("hide");
-          searchBtn.classList.add("hide");
-          cancelBtn.classList.add("show");
-        }
-        cancelBtn.onclick = ()=>{
-          items.classList.remove("active");
-          menuBtn.classList.remove("hide");
-          searchBtn.classList.remove("hide");
-          cancelBtn.classList.remove("show");
-          form.classList.remove("active"); 
-        }
-        searchBtn.onclick = ()=>{
-          form.classList.add("active");
-          searchBtn.classList.add("hide");
-          cancelBtn.classList.add("show");
-        }
-      </script>
+    </nav>
+    <script>
+        // search-box open close js code
+        let navbar = document.querySelector(".navbar");
+        let searchBox = document.querySelector(".search-box .bx-search");
+        // let searchBoxCancel = document.querySelector(".search-box .bx-x");
 
+        searchBox.addEventListener("click", () => {
+            navbar.classList.toggle("showInput");
+            if (navbar.classList.contains("showInput")) {
+                searchBox.classList.replace("bx-search", "bx-x");
+            } else {
+                searchBox.classList.replace("bx-x", "bx-search");
+            }
+        });
+
+        // sidebar open close js code
+        let navLinks = document.querySelector(".nav-links");
+        let menuOpenBtn = document.querySelector(".navbar .bx-menu");
+        let menuCloseBtn = document.querySelector(".nav-links .bx-x");
+        menuOpenBtn.onclick = function () {
+            navLinks.style.left = "0";
+        }
+        menuCloseBtn.onclick = function () {
+            navLinks.style.left = "-100%";
+        }
+
+
+        // sidebar submenu open close js code
+        let htmlcssArrow = document.querySelector(".htmlcss-arrow");
+        htmlcssArrow.onclick = function () {
+            navLinks.classList.toggle("show1");
+        }
+        let moreArrow = document.querySelector(".more-arrow");
+        moreArrow.onclick = function () {
+            navLinks.classList.toggle("show2");
+        }
+        let jsArrow = document.querySelector(".js-arrow");
+        jsArrow.onclick = function () {
+            navLinks.classList.toggle("show3");
+        }
+        let cntArrow = document.querySelector(".cnt-arrow");
+        cntArrow.onclick = function () {
+            navLinks.classList.toggle("show4");
+        }
+
+
+    </script>
 
     <!-- navigation end-->
 
     <!--header start-->
     <header class=" text-white text-center">
-        <div class="carousel" style="padding-top:4rem ;" >
+        <div class="carousel" style="padding-top:4rem ;">
             <div class="carousel_inner">
                 <div class="carousel_item carousel_item__active">
                     <img src="./img/slider/(4).png" alt="" class="carousel_img">
@@ -146,7 +196,7 @@
     <!--header end-->
     <!--Start-->
     <div class="container">
-        <div class="mySection" style="margin-top:-40px;">
+        <div class="mySection" style="margin-top:-40px;" id="downslider">
             <div class="text-center mb-5 border-bottom">
                 <h2 class="s-heading text-uppercase fw-bold">Arzem Geri Dönüşüm</h2>
                 <p class="text-muted">Elektronik geri dönüşüm sektöründe 20 yılı aşkın bir deneyime sahip olan firmamız,
@@ -417,51 +467,54 @@
     <div class="contain container-fluid">
 
         <div class="wrapper">
-      
-          <div class="form">
-            <h4>GET IN TOUCH</h4>
-            <h2 class="form-headline">Send us a message</h2>
-            <form id="submit-form" action="">
-              <p>
-                <input id="name" class="form-input" type="text" placeholder="Your Name*">
-                <small class="name-error"></small>
-              </p>
-              <p>
-                <input id="email" class="form-input" type="email" placeholder="Your Email*">
-                <small class="name-error"></small>
-              </p>
-              <p class="full-width">
-                <input id="company-name" class="form-input" type="text" placeholder="Company Name*" required>
-                <small></small>
-              </p>
-              <p class="full-width">
-                <textarea  minlength="20" id="message" cols="30" rows="7" placeholder="Your Message*" required></textarea>
-                <small></small>
-              </p>
-              <p class="full-width">
-                <input type="checkbox" id="checkbox" name="checkbox" checked> Yes, I would like to receive communications by call / email about Company's services.
-              </p>
-              <p class="full-width">
-                <input type="submit" class="submit-btn" value="Submit" onclick="checkValidations()">
-                <button class="reset-btn" onclick="reset()">Reset</button>
-              </p>
-            </form>
-          </div>
-      
-          <div class="contacts contact-wrapper ">
-      
-            <ul>
-              <li>We've driven online revenues of over <span class="highlight-text-grey">$2
-                  billion</span> for our clients. Ready to know
-                how we can help you?</li>
-              <span class="hightlight-contact-info">
-                <li class="email-info"><i class="fa fa-envelope" aria-hidden="true"></i> info@demo.com</li>
-                <li><i class="fa fa-phone" aria-hidden="true"></i> <span class="highlight-text">+91 11 1111 2900</span></li>
-              </span>
-            </ul>
-          </div>
+
+            <div class="form">
+                <h4>GET IN TOUCH</h4>
+                <h2 class="form-headline">Send us a message</h2>
+                <form id="submit-form" action="">
+                    <p>
+                        <input id="name" class="form-input" type="text" placeholder="Your Name*">
+                        <small class="name-error"></small>
+                    </p>
+                    <p>
+                        <input id="email" class="form-input" type="email" placeholder="Your Email*">
+                        <small class="name-error"></small>
+                    </p>
+                    <p class="full-width">
+                        <input id="company-name" class="form-input" type="text" placeholder="Company Name*" required>
+                        <small></small>
+                    </p>
+                    <p class="full-width">
+                        <textarea minlength="20" id="message" cols="30" rows="7" placeholder="Your Message*"
+                            required></textarea>
+                        <small></small>
+                    </p>
+                    <p class="full-width">
+                        <input type="checkbox" id="checkbox" name="checkbox" checked> Yes, I would like to receive
+                        communications by call / email about Company's services.
+                    </p>
+                    <p class="full-width">
+                        <input type="submit" class="submit-btn" value="Submit" onclick="checkValidations()">
+                        <button class="reset-btn" onclick="reset()">Reset</button>
+                    </p>
+                </form>
+            </div>
+
+            <div class="contacts contact-wrapper ">
+
+                <ul>
+                    <li>We've driven online revenues of over <span class="highlight-text-grey">$2
+                            billion</span> for our clients. Ready to know
+                        how we can help you?</li>
+                    <span class="hightlight-contact-info">
+                        <li class="email-info"><i class="fa fa-envelope" aria-hidden="true"></i> info@demo.com</li>
+                        <li><i class="fa fa-phone" aria-hidden="true"></i> <span class="highlight-text">+91 11 1111
+                                2900</span></li>
+                    </span>
+                </ul>
+            </div>
         </div>
-      </div>
+    </div>
     <footer class="footer">
         <div class="container">
             <div class="row">
@@ -513,7 +566,7 @@
                                 <div class="content">
                                     <a href="#">
                                         <p>
-                                                Did son unreserved themselves indulgence its
+                                            Did son unreserved themselves indulgence its
                                         </p>
                                     </a>
                                     <span>
@@ -528,7 +581,7 @@
                                 <div class="content">
                                     <a href="#">
                                         <p>
-                                                Rapturous am eagerness it as resolving household
+                                            Rapturous am eagerness it as resolving household
                                         </p>
                                     </a>
                                     <span>
